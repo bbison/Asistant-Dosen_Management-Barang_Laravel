@@ -13,3 +13,5 @@ Route::post('/pabrik',[dashboard_controller::class,'tambahpabrik']);
 Route::post('/produk',[dashboard_controller::class,'tambahproduk']);
 Route::post('/hapusproduk',[dashboard_controller::class,'hapusproduk']);
 Route::post('/hapuspabrik',[dashboard_controller::class,'hapuspabrik']);
+Route::post('/produk/{id}',[dashboard_controller::class,'updateproduk']);
+Route::post('/pabrik/{id}',[dashboard_controller::class,'updatepabrik']);

@@ -29,7 +29,7 @@ class dashboard_controller extends Controller
     public function admin()
     {
         return view ('layouts.index',[
-            'pabrik'=>pabrik::all(),
+            'pabriks'=>pabrik::all(),
             'produk'=>produk::all()
         ]);
     }
@@ -75,5 +75,26 @@ class dashboard_controller extends Controller
 
     pabrik::find($request->idpabrik)->delete();
     return back();
+   }
+
+   public function updateproduk($id, Request $request)
+   {
+    produk::find($id)->update([
+        'pabrik_id'=>$request->pabrik_id,
+        'nama_produk'=>$request->nama_produk,
+        'stok'=>$request->jumlah_stok,
+    ]);
+
+    return back();
+   }
+
+   public function updatepabrik($id, Request $request)
+   {
+     pabrik::find($id)->update([
+        'nama_pabrik'=>$request->nama_pabrik,
+        'alamat'=>$request->alamat_pabrik,
+        'contact'=>$request->contact_pabrik,
+     ]);
+     return back();
    }
 }
