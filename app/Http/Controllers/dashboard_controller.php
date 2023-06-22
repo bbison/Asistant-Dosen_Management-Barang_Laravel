@@ -22,7 +22,7 @@ class dashboard_controller extends Controller
         ])) {
             $request->session()->regenerate();
  
-            return 'berhasil';
+          return redirect()->intended('/admin');
         }
         return 'gagal';
     }

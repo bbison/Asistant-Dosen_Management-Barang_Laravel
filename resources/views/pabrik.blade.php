@@ -45,6 +45,12 @@
                     </form>
                 </div>
             </div>
+            @if (session('pesan'))
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <strong>Gagal</strong> {{ session('pesan') }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            @endif
             <table class="table">
                 <tr>
                     <th>NO</th>
@@ -76,35 +82,36 @@
                         <div class="modal-dialog">
                             <form action="/pabrik/{{ $item->id }}" method="post">
                                 @csrf
-                                
+
                                 <div class="modal-content">
-                                  <div class="modal-header">
-                                      <h1 class="modal-title fs-5" id="exampleModalLabel">Update Pabrik</h1>
-                                      <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                          aria-label="Close"></button>
-                                  </div>
-                                  <div class="modal-body">
-                                      <div class="mb-3">
-                                          <label for="exampleInputEmail1" class="form-label">Nama Pabrik</label>
-                                          <input type="text" name="nama_pabrik" value="{{$item->nama_pabrik}}" id="exampleInputEmail1"
-                                              aria-describedby="emailHelp">
-                                      </div>
-                                      <div class="mb-3">
-                                          <label for="exampleInputEmail1" class="form-label">Alamat Pabrik</label>
-                                          <input type="text" name="alamat_pabrik" value="{{$item->alamat}}" id="exampleInputEmail1"
-                                              aria-describedby="emailHelp">
-                                      </div>
-                                      <div class="mb-3">
-                                          <label for="exampleInputEmail1" class="form-label">Contact Pabrik</label>
-                                          <input type="text" name="contact_pabrik" value="{{$item->contact}}" id="exampleInputEmail1"
-                                              aria-describedby="emailHelp">
-                                      </div>
-                                  </div>
-                                  <div class="modal-footer">
-                                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">close</button>
-                                      <button type="submit" class="btn btn-primary">save</button>
-                                  </div>
-                              </div>
+                                    <div class="modal-header">
+                                        <h1 class="modal-title fs-5" id="exampleModalLabel">Update Pabrik</h1>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="mb-3">
+                                            <label for="exampleInputEmail1" class="form-label">Nama Pabrik</label>
+                                            <input type="text" name="nama_pabrik" value="{{ $item->nama_pabrik }}"
+                                                id="exampleInputEmail1" aria-describedby="emailHelp">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="exampleInputEmail1" class="form-label">Alamat Pabrik</label>
+                                            <input type="text" name="alamat_pabrik" value="{{ $item->alamat }}"
+                                                id="exampleInputEmail1" aria-describedby="emailHelp">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="exampleInputEmail1" class="form-label">Contact Pabrik</label>
+                                            <input type="text" name="contact_pabrik" value="{{ $item->contact }}"
+                                                id="exampleInputEmail1" aria-describedby="emailHelp">
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary"
+                                            data-bs-dismiss="modal">close</button>
+                                        <button type="submit" class="btn btn-primary">save</button>
+                                    </div>
+                                </div>
                             </form>
                         </div>
                     </div>
